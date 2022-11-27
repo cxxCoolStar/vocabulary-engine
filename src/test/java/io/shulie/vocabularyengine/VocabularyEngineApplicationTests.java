@@ -23,4 +23,11 @@ class VocabularyEngineApplicationTests {
         System.out.println(vocabularyFilter.isExist("world"));
     }
 
+
+    @Test
+    void fileTest() {
+        vocabularyFilter.addVocabulary("hello");
+        System.out.println(vocabularyFilter.isExist("world"));
+    }
+
 }

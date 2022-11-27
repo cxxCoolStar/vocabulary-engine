@@ -1,5 +1,7 @@
 package io.shulie.vocabularyengine.processor;
 
+import io.shulie.vocabularyengine.common.constant.FileConstants;
+import io.shulie.vocabularyengine.util.FileUtil;
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;
 import us.codecraft.webmagic.Spider;
@@ -17,24 +19,6 @@ public class WuweiPageProcessor implements PageProcessor {
 
     @Override
     public void process(Page page) {
-//        page.addTargetRequests(page.getHtml().links().all());
-//        page.putField("author", page.getUrl().regex("https://github\\.com/(\\w+)/.*").toString());
-//        page.putField("name", page.getHtml().xpath("//h1[@class='entry-title public']/strong/a/text()").toString());
-//        if (page.getResultItems().get("name")==null){
-//            //skip this page
-//            page.setSkip(true);
-//        }
-//        page.putField("readme", page.getHtml().xpath("//div[@id='readme']/tidyText()"));
-//        page.addTargetRequests(page.getHtml().xpath("//a[@title]").links().all());
-//        page.putField("href", page.getUrl().toString());
-//        page.putField("title", page.getHtml().xpath("//title").toString());
-//        List<String> all = page.getHtml().xpath("//td/a").all();
-//        List<String> all1 = new ArrayList<>();
-//        for(String item : all){
-////            all1.add(item.replace("<a>","").replace("</a>",""));
-//            all1.add("<br>"+item.replace("<a ","").replace("</a>","")+"<br>");
-//
-//        }
         TreeSet<String> set = new TreeSet<>();
         List<String> all = page.getHtml().xpath("//tr/td/code/a/text()|div[@class=\"block\"]/text()|//dt/text()|//dd/text()").all();
         for(String item : all){
@@ -63,6 +47,6 @@ public class WuweiPageProcessor implements PageProcessor {
     }
 
     public static void main(String[] args) {
-        Spider.create(new WuweiPageProcessor()).addUrl("https://docs.oracle.com/javase/8/docs/api/java/applet/AppletContext.html").addPipeline(new FilePipeline("D:\\webmagic\\")).thread(300).run();
+        Spider.create(new WuweiPageProcessor()).addUrl(FileUtil.readUrlFromFile(FileConstants.DOCUMENT_URL_FILE_PATH).toArray(new String[0])).addPipeline(new FilePipeline("D:\\webmagic\\")).thread(300).run();
     }
 }

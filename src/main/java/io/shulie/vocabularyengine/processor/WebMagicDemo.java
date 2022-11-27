@@ -1,11 +1,16 @@
 package io.shulie.vocabularyengine.processor;
 
+import io.shulie.vocabularyengine.common.constant.FileConstants;
+import io.shulie.vocabularyengine.common.constant.JdkElementConstants;
+import io.shulie.vocabularyengine.pipeline.JdkFilePipeline;
+import io.shulie.vocabularyengine.util.FileUtil;
 import org.springframework.util.CollectionUtils;
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;
 import us.codecraft.webmagic.Spider;
 import us.codecraft.webmagic.processor.PageProcessor;
 import us.codecraft.webmagic.selector.Selectable;
+
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -16,38 +21,7 @@ public class WebMagicDemo implements PageProcessor {
 
     @Override
     public void process(Page page) {
-        FileOutputStream fileOutputStream = null;
-
-        Selectable selectable = page.getHtml().xpath("body/div[@class=contentContainer]/table/tbody[2]/tr/td[1]/a/@href");
-        List<String> all = selectable.all();
-        List<String> urlList = new ArrayList<>();
-        if (!CollectionUtils.isEmpty(all)) {
-            for (String url : all) {
-                urlList.add("https://docs.oracle.com/javase/8/docs/api/" + url);
-            }
-        }
-        if (!CollectionUtils.isEmpty(urlList)) {
-            String toString = urlList.toString();
-            toString = toString.substring(1, toString.length() - 1);
-            String[] split = toString.split(", ");
-            try {for (String s : split) {
-                    s += "\r\n";
-                    byte[] bytes = s.getBytes();
-                    fileOutputStream = new FileOutputStream("..\\vocabulary-engine\\doc\\jdk\\package_url.txt", true);
-                    fileOutputStream.write(bytes);
-                }
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            } finally {
-                if (fileOutputStream != null) {
-                    try {
-                        fileOutputStream.close();
-                    } catch (IOException e) {
-                        throw new RuntimeException(e);
-                    }
-                }
-            }
-        }
+        page.putField(JdkElementConstants.PACKAGE_URL_LIST_KEY, page.getHtml().xpath("body/div[@class=contentContainer]/table/tbody[2]/tr/td[1]/a/@href").all());
     }
 
     @Override
@@ -56,6 +30,9 @@ public class WebMagicDemo implements PageProcessor {
     }
 
     public static void main(String[] args) {
-        Spider.create(new WebMagicDemo()).addUrl("https://docs.oracle.com/javase/8/docs/api/overview-summary.html").thread(5).run();
+        Spider.create(new WebMagicDemo())
+                .addUrl("https://docs.oracle.com/javase/8/docs/api/overview-summary.html")
+                .addPipeline(new JdkFilePipeline())
+                .thread(5).run();
     }
 }
