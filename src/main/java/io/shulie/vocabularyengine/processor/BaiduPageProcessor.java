@@ -1,10 +1,8 @@
 package io.shulie.vocabularyengine.processor;
 
-import io.shulie.vocabularyengine.downloader.NullDownloader;
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;
 import us.codecraft.webmagic.Spider;
-import us.codecraft.webmagic.pipeline.FilePipeline;
 import us.codecraft.webmagic.processor.PageProcessor;
 
 public class BaiduPageProcessor implements PageProcessor {
