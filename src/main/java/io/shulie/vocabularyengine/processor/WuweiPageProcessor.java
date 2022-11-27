@@ -52,6 +52,8 @@ public class WuweiPageProcessor implements PageProcessor {
             System.out.println(s);
         }
 
+        page.putField("word", all);
+
     }
 
     @Override
