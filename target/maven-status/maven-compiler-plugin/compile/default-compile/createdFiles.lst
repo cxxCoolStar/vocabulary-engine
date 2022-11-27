@@ -3,5 +3,7 @@ io\shulie\vocabularyengine\controller\HealthController.class
 io\shulie\vocabularyengine\VocabularyEngineApplication.class
 io\shulie\vocabularyengine\datafilter\VocabularyFilter.class
 io\shulie\vocabularyengine\common\constant\CacheConstants.class
+io\shulie\vocabularyengine\processor\WebMagicDemo.class
 io\shulie\vocabularyengine\processor\BaiduPageProcessor.class
 io\shulie\vocabularyengine\conf\RedissonConfig.class
+io\shulie\vocabularyengine\processor\WuweiPageProcessor.class

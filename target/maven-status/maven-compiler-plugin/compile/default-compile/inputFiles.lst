@@ -1,7 +1,9 @@
-E:\code\vocabulary-engine\src\main\java\io\shulie\vocabularyengine\controller\HealthController.java
-E:\code\vocabulary-engine\src\main\java\io\shulie\vocabularyengine\conf\RedissonConfig.java
-E:\code\vocabulary-engine\src\main\java\io\shulie\vocabularyengine\datafilter\VocabularyFilter.java
-E:\code\vocabulary-engine\src\main\java\io\shulie\vocabularyengine\VocabularyEngineApplication.java
-E:\code\vocabulary-engine\src\main\java\io\shulie\vocabularyengine\common\constant\CacheConstants.java
-E:\code\vocabulary-engine\src\main\java\io\shulie\vocabularyengine\datafilter\BloomFilter.java
-E:\code\vocabulary-engine\src\main\java\io\shulie\vocabularyengine\processor\BaiduPageProcessor.java
+E:\program\vocabulary-engine\src\main\java\io\shulie\vocabularyengine\common\constant\CacheConstants.java
+E:\program\vocabulary-engine\src\main\java\io\shulie\vocabularyengine\VocabularyEngineApplication.java
+E:\program\vocabulary-engine\src\main\java\io\shulie\vocabularyengine\processor\BaiduPageProcessor.java
+E:\program\vocabulary-engine\src\main\java\io\shulie\vocabularyengine\processor\WuweiPageProcessor.java
+E:\program\vocabulary-engine\src\main\java\io\shulie\vocabularyengine\datafilter\BloomFilter.java
+E:\program\vocabulary-engine\src\main\java\io\shulie\vocabularyengine\controller\HealthController.java
+E:\program\vocabulary-engine\src\main\java\io\shulie\vocabularyengine\conf\RedissonConfig.java
+E:\program\vocabulary-engine\src\main\java\io\shulie\vocabularyengine\datafilter\VocabularyFilter.java
+E:\program\vocabulary-engine\src\main\java\io\shulie\vocabularyengine\processor\WebMagicDemo.java
