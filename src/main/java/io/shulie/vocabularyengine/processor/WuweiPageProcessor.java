@@ -48,11 +48,12 @@ public class WuweiPageProcessor implements PageProcessor {
             }
         }
 
-        for (String s : set){
-            System.out.println(s);
-        }
+//        for (String s : set){
+//            System.out.println(s);
+//        }
+        System.out.println(set);
 
-        page.putField("word", all);
+        page.putField("word", set);
 
     }
 
